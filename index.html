@@ -657,6 +657,57 @@
         padding: 30px;
       }
     }
+    .friends-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.friend-card {
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: 0 18px 60px rgba(8, 47, 73, 0.075);
+  transition: 180ms ease;
+}
+
+.friend-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 24px 70px rgba(8, 47, 73, 0.12);
+}
+
+.friend-card span {
+  display: block;
+  margin-bottom: 11px;
+  color: var(--muted-2);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.friend-card strong {
+  display: block;
+  font-size: 19px;
+  line-height: 1.45;
+}
+
+.friend-card p {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+@media (max-width: 720px) {
+  .friends-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -674,6 +725,7 @@
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
+        <a href="#friends">Friends</a>
       </div>
       <a class="nav-action" href="https://github.com/wenqi-deng" target="_blank" rel="noopener">GitHub ↗</a>
     </div>
@@ -699,7 +751,7 @@
 
         <aside class="profile-card" aria-label="Profile summary">
           <div class="profile-head">
-            <img class="avatar" src="static/assets/img/photo.jpeg" alt="Wenqi Deng profile photo" />
+            <img class="avatar" src="img/profile.jpg" alt="Wenqi Deng profile photo" />
             <div>
               <div class="profile-name">Wenqi Deng</div>
               <strong>EECS · Turing Class</strong>
@@ -715,7 +767,7 @@
 
       <div class="stats-grid">
         <div class="stat">
-          <strong>3.899</strong>
+          <strong>3.90</strong>
           <span>GPA, 2025 Fall</span>
         </div>
         <div class="stat">
@@ -776,14 +828,12 @@
           <div class="section-kicker">About</div>
           <h2>Building efficient and reliable ML systems.</h2>
         </div>
-        <p class="section-note">
           <p class="section-note">
             I am interested in how machine learning models are optimized, scheduled, and deployed in real systems.
             My recent experience includes local LLM deployment, inference optimization practices, diffusion-based visual models,
             robotic data collection, and application-oriented AI systems.
             </p>
 
-        </p>
       </div>
 
       <div class="about-grid">
@@ -813,7 +863,7 @@
 
       <div class="timeline">
         <article class="timeline-item">
-          <div class="timeline-time">2024.9 — 2028.6</div>
+          <div class="timeline-time">2024 — Expected 2028</div>
           <div>
             <h3>Peking University</h3>
             <div class="meta-line">School of EECS · Turing Class</div>
@@ -1003,6 +1053,32 @@
         </a>
       </div>
     </section>
+    <section id="friends" class="reveal">
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">Friends</div>
+      <h2>Friends and links.</h2>
+    </div>
+    <p class="section-note">
+      Personal pages of friends and classmates.
+    </p>
+  </div>
+
+  <div class="friends-grid">
+    <a class="friend-card" href="https://www.photonyan.fun/about/" target="_blank" rel="noopener">
+      <span>Friend</span>
+      <strong>Shaoheng Yan</strong>
+      <p>photonyan.fun/about ↗</p>
+    </a>
+
+    <a class="friend-card" href="https://jinshuo-li.github.io/" target="_blank" rel="noopener">
+      <span>Friend</span>
+      <strong>Jinshuo Li</strong>
+      <p>jinshuo-li.github.io ↗</p>
+    </a>
+  </div>
+</section>
+
   </main>
 
   <footer>
