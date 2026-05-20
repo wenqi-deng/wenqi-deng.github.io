@@ -253,6 +253,8 @@
       border-radius: 30px;
       background: rgba(255, 255, 255, 0.72);
       box-shadow: var(--shadow);
+      transform: translateY(-80px);
+      transition: transform 180ms ease;
     }
 
     .profile-head {
@@ -653,6 +655,10 @@
         flex-direction: column;
       }
 
+        .profile-card {
+          transform: none;
+        }
+
       .statement {
         padding: 30px;
       }
@@ -744,12 +750,12 @@
       <div class="hero-top">
         <div>
           <div class="eyebrow">Turing Class · MLSys</div>
-          <h1 class="hero-title">Wenqi Deng</h1>
+          <h2 class="hero-title">Wenqi Deng</h2>
           <div class="homepage-label">Peking University</div>
           <p class="hero-summary">
             I am an undergraduate student in the Turing Class at the School of EECS,
             Peking University, where I serve as the class monitor. My current interests lie in machine learning systems,
-            especially efficient inference, scheduling, and AI deployment.
+            especially efficient inference.
           </p>
           <div class="hero-actions">
             <a class="button primary" href="#experience">View experience</a>
@@ -759,7 +765,7 @@
 
         <aside class="profile-card" aria-label="Profile summary">
           <div class="profile-head">
-            <img class="avatar" src="img/profile.jpg" alt="Wenqi Deng profile photo" />
+            <img class="avatar" src="img/profile1.jpg" alt="Wenqi Deng profile photo" />
             <div>
               <div class="profile-name">Wenqi Deng</div>
               <strong>EECS</strong>
@@ -897,42 +903,13 @@
           and deploying models locally.
         </p>
       </div>
-
-      <div class="experience-list">
-        <article class="experience-item">
-          <div class="experience-time">Embodied AI</div>
-          <div>
-            <h3>Undergraduate Research Experience, Peking University</h3>
-            <div class="meta-line">With guidance from Prof. Hao Dong's group</div>
-            <p>
-                Gained exposure to recent research in embodied intelligence and participated in hands-on robotic data collection experiments.
-            </p>
-          </div>
-        </article>
-
-        <article class="experience-item">
-          <div class="experience-time">Computer Vision</div>
-          <div>
-            <h3>Undergraduate Research Student, Peking University</h3>
-            <div class="meta-line">AI Camera Project · With guidance from Prof. Boxin Shi's group</div>
-            <p>
-                Worked on data preparation and gained experience in local LLM deployment, inference optimization practices,
-                and representative vision and generative models such as Diffusion models, DiT, and CLIP.
-            </p>
-            <p>
-                Studied and reproduced a method that uses AI agents for automated photo tone adjustment, where the agent
-                iteratively evaluates and modifies the image until satisfactory results are achieved.
-            </p>
-          </div>
-        </article>
-      </div>
     </section>
 
     <section id="projects" class="reveal">
       <div class="section-head">
         <div>
           <div class="section-kicker">Selected Work</div>
-          <h2>Projects and systems.</h2>
+          <h2>Projects.</h2>
         </div>
         <p class="section-note">
           Selected projects from research exploration, coursework, and application development.
