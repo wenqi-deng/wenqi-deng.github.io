@@ -68,15 +68,19 @@ html.dark .profile-head > div > strong {
 }
 
 /* Disable hover effect on the profile card (no visual change on hover) */
+.profile-card {
+  transition: none !important;
+}
 .profile-card:hover {
-  transform: translateY(-80px);
-  background: rgba(255, 255, 255, 0.72);
-  box-shadow: var(--shadow);
+  /* keep exactly the same visual state on hover */
+  transform: translateY(-80px) !important;
+  background: rgba(255, 255, 255, 0.72) !important;
+  box-shadow: var(--shadow) !important;
 }
 html.dark .profile-card:hover {
-  transform: translateY(-80px);
-  background: rgba(10, 18, 26, 0.64);
-  box-shadow: var(--shadow);
+  transform: translateY(-80px) !important;
+  background: rgba(10, 18, 26, 0.64) !important;
+  box-shadow: var(--shadow) !important;
 }
 
 /* Reduce hover brightness for translucent cards in dark mode */
@@ -271,11 +275,13 @@ h1, h2, h3, p {
 
 .hero-title {
   font-family: Montserrat, Inter, system-ui, sans-serif;
-  font-size: clamp(58px, 8.6vw, 104px);
+  /* Reduced to ~2/3 of previous size for a less imposing hero */
+  font-size: clamp(38px, 5.7vw, 70px);
   line-height: 1.08;
   letter-spacing: 0.02em;
   font-weight: 700;
   white-space: nowrap;
+  margin-top: 14px; /* nudge title slightly downward */
 }
 
 .homepage-label {
@@ -318,7 +324,7 @@ h1, h2, h3, p {
   border: 1px solid var(--line);
   font-size: 15px;
   font-weight: 700;
-  transition: 180ms ease;
+  transition: transform 200ms cubic-bezier(.2,.9,.2,1), box-shadow 200ms cubic-bezier(.2,.9,.2,1), background 180ms ease;
 }
 
 .button:hover {
@@ -338,6 +344,24 @@ h1, h2, h3, p {
 
 .button.secondary:hover {
   background: rgba(255, 255, 255, 0.94);
+}
+
+/* Primary button micro-interactions */
+.button.primary:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 28px 64px rgba(8, 145, 178, 0.22);
+}
+.button.primary:active {
+  transform: translateY(-1px) scale(0.995);
+}
+.button:focus-visible {
+  outline: 3px solid rgba(6,182,212,0.16);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button { transition: none; transform: none !important; }
+  .repo-link { transition: none; transform: none !important; }
 }
 
 .profile-card {
@@ -580,6 +604,22 @@ h3 {
   background: var(--accent-soft);
   font-size: 12px;
   font-weight: 800;
+}
+
+/* Repo link micro-interaction */
+.repo-link {
+  transition: transform 180ms cubic-bezier(.2,.9,.2,1), color 160ms ease, box-shadow 200ms ease;
+}
+.repo-link:hover {
+  transform: translateY(-3px);
+  color: var(--accent-blue);
+  box-shadow: 0 10px 30px rgba(8, 145, 178, 0.08);
+}
+.repo-link:active { transform: translateY(-1px); }
+
+html.dark .repo-link:hover {
+  box-shadow: 0 8px 22px rgba(0,0,0,0.6);
+  color: var(--accent-cyan);
 }
 
 .tags, .skill-cloud {
