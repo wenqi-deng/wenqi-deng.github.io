@@ -18,6 +18,109 @@
   --max: 1120px;
 }
 
+/* Dark theme variables and adjustments */
+html.dark {
+  --bg: #071022;
+  --paper: #0b1622;
+  --text: #e6f6ff;
+  --muted: #9fb0c0;
+  --muted-2: #7f98a8;
+  --line: rgba(255, 255, 255, 0.06);
+  --accent: #06b6d4;
+  --accent-dark: #0891b2;
+  --accent-deep: #67e8f9;
+  --accent-soft: rgba(8, 145, 178, 0.06);
+  --accent-cyan: #38bdf8;
+  --accent-blue: #60a5fa;
+  --card: rgba(10, 18, 26, 0.64);
+  --shadow: 0 28px 80px rgba(0, 0, 0, 0.6);
+}
+
+html.dark body {
+  background: linear-gradient(180deg, #071022 0%, #071a2a 100%);
+  color: var(--text);
+}
+
+/* Tweak translucent UI in dark mode */
+html.dark .nav-inner {
+  background: rgba(10, 18, 26, 0.64);
+  border-color: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.6);
+}
+html.dark .nav-action {
+  background: var(--accent);
+  color: var(--text);
+}
+
+/* Keep profile name and focus text black even in dark mode per preference */
+html.dark .profile-name,
+html.dark .profile-item strong {
+  color: #0b1724;
+}
+
+/* Make the small profile label (the `strong` next to the name) black in both themes */
+.profile-head > div > strong {
+  color: var(--text);
+  font-weight: 700;
+}
+html.dark .profile-head > div > strong {
+  color: #0b1724;
+}
+
+/* Disable hover effect on the profile card (no visual change on hover) */
+.profile-card:hover {
+  transform: translateY(-80px);
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: var(--shadow);
+}
+html.dark .profile-card:hover {
+  transform: translateY(-80px);
+  background: rgba(10, 18, 26, 0.64);
+  box-shadow: var(--shadow);
+}
+
+/* Reduce hover brightness for translucent cards in dark mode */
+html.dark .card:hover,
+html.dark .project:hover,
+html.dark .contact-card:hover,
+html.dark .experience-item:hover,
+html.dark .profile-card:hover,
+html.dark .friend-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.6);
+}
+
+/* Theme toggle button */
+#theme-toggle {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.62);
+  color: var(--muted);
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  transition: 180ms ease;
+}
+
+#theme-toggle:hover {
+  transform: translateY(-1px);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.94);
+}
+
+html.dark #theme-toggle {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--muted-2);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
 /* Reset and base rules */
 * {
   box-sizing: border-box;
@@ -571,6 +674,18 @@ footer {
   padding: 46px 0 38px;
   color: var(--muted);
   font-size: 14px;
+}
+
+/* Smaller, subtle link for Peking University in the footer */
+.footer-inner .pku-link {
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+}
+.footer-inner .pku-link:hover {
+  color: var(--text);
+  text-decoration: underline;
 }
 
 .footer-inner {
